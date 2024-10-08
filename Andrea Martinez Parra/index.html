@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor TDeA</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .container { max-width: 600px; margin: 0 auto; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; }
+    input, select, button { width: 100%; padding: 8px; margin-top: 5px; }
+    button { background-color: #007BFF; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #0056b3; }
+    .category { margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Conversor de Unidades De Las Muñequitas</h1>
+  
+  <div class="category">
+    <h2>Conversión de Longitud</h2>
+    <div class="form-group">
+      <label for="lengthInputValue">Valor de entrada:</label>
+      <input type="number" id="lengthInputValue">
+    </div>
+
+    <div class="form-group">
+      <label for="lengthFromUnit">De:</label>
+      <select id="lengthFromUnit"></select>
+    </div>
+
+    <div class="form-group">
+      <label for="lengthToUnit">A:</label>
+      <select id="lengthToUnit"></select>
+    </div>
+
+    <button id="lengthConvertBtn">Convertir Longitud</button>
+    <h3>Resultado: <span id="lengthResult"></span></h3>
+  </div>
+
+  <div class="category">
+    <h2>Conversión de Peso</h2>
+    <div class="form-group">
+      <label for="weightInputValue">Valor de entrada:</label>
+      <input type="number" id="weightInputValue">
+    </div>
+
+    <div class="form-group">
+      <label for="weightFromUnit">De:</label>
+      <select id="weightFromUnit"></select>
+    </div>
+
+    <div class="form-group">
+      <label for="weightToUnit">A:</label>
+      <select id="weightToUnit"></select>
+    </div>
+
+    <button id="weightConvertBtn">Convertir Peso</button>
+    <h3>Resultado: <span id="weightResult"></span></h3>
+  </div>
+
+  <div class="category">
+    <h2>Conversión de Temperatura</h2>
+    <div class="form-group">
+      <label for="temperatureInputValue">Valor de entrada:</label>
+      <input type="number" id="temperatureInputValue">
+    </div>
+
+    <div class="form-group">
+      <label for="temperatureFromUnit">De:</label>
+      <select id="temperatureFromUnit"></select>
+    </div>
+
+    <div class="form-group">
+      <label for="temperatureToUnit">A:</label>
+      <select id="temperatureToUnit"></select>
+    </div>
+
+    <button id="temperatureConvertBtn">Convertir Temperatura</button>
+    <h3>Resultado: <span id="temperatureResult"></span></h3>
+  </div>
+
+  <div class="category">
+    <h2>Conversión de Moneda</h2>
+    <div class="form-group">
+      <label for="currencyInputValue">Valor de entrada:</label>
+      <input type="number" id="currencyInputValue">
+    </div>
+
+    <div class="form-group">
+      <label for="currencyFromUnit">De:</label>
+      <select id="currencyFromUnit"></select>
+    </div>
+
+    <div class="form-group">
+      <label for="currencyToUnit">A:</label>
+      <select id="currencyToUnit"></select>
+    </div>
+
+    <button id="currencyConvertBtn">Convertir Moneda</button>
+    <h3>Resultado: <span id="currencyResult"></span></h3>
+  </div>
+
+  <h3>Agregar nueva conversión:</h3>
+  <div class="form-group">
+    <label for="newUnitName">Nombre de la unidad:</label>
+    <input type="text" id="newUnitName">
+  </div>
+
+  <div class="form-group">
+    <label for="newUnitCategory">Categoría:</label>
+    <select id="newUnitCategory">
+      <option value="length">Longitud</option>
+      <option value="weight">Peso</option>
+      <option value="temperature">Temperatura</option>
+      <option value="currency">Moneda</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="newUnitFactor">Factor de conversión:</label>
+    <input type="number" id="newUnitFactor" step="any">
+  </div>
+
+  <button id="addConversionBtn">Agregar nueva conversión</button>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

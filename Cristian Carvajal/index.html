@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Unidades Pochos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    h1 {
+      text-align: center;
+      color: #007BFF;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    .tabs button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .tabs button.active {
+      background-color: #0056b3;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .conversion-section {
+      display: none;
+    }
+    .conversion-section.active {
+      display: block;
+    }
+    .category h3 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Conversor Pochos</h1>
+
+<div class="tabs">
+  <button class="tab-button active" data-tab="longitud">Longitud</button>
+  <button class="tab-button" data-tab="peso">Peso</button>
+  <button class="tab-button" data-tab="temperatura">Temperatura</button>
+  <button class="tab-button" data-tab="moneda">Moneda</button>
+</div>
+
+<div class="container">
+  
+  <div id="longitud" class="conversion-section active">
+    <h2>Conversión de Longitud</h2>
+    <div class="form-group">
+      <label for="longitudValor">Valor de entrada:</label>
+      <input type="number" id="longitudValor">
+    </div>
+
+    <div class="form-group">
+      <label for="longitudDesde">De:</label>
+      <select id="longitudDesde"></select>
+    </div>
+
+    <div class="form-group">
+      <label for="longitudHasta">A:</label>
+      <select id="longitudHasta"></select>
+    </div>
+
+    <button id="btnConvertirLongitud">Convertir Longitud</button>
+    <h3>Resultado: <span id="resultadoLongitud"></span></h3>
+  </div>
+
+  
+  <div id="peso" class="conversion-section">
+    <h2>Conversión de Peso</h2>
+    <div class="form-group">
+      <label for="pesoValor">Valor de entrada:</label>
+      <input type="number" id="pesoValor">
+    </div>
+
+    <div class="form-group">
+      <label for="pesoDesde">De:</label>
+      <select id="pesoDesde"></select>
+    </div>
+
+    <div class="form-group">
+      <label for="pesoHasta">A:</label>
+      <select id="pesoHasta"></select>
+    </div>
+
+    <button id="btnConvertirPeso">Convertir Peso</button>
+    <h3>Resultado: <span id="resultadoPeso"></span></h3>
+  </div>
+
+  
+  <div id="temperatura" class="conversion-section">
+    <h2>Conversión de Temperatura</h2>
+    <div class="form-group">
+      <label for="temperaturaValor">Valor de entrada:</label>
+      <input type="number" id="temperaturaValor">
+    </div>
+
+    <div class="form-group">
+      <label for="temperaturaDesde">De:</label>
+      <select id="temperaturaDesde"></select>
+    </div>
+
+    <div class="form-group">
+      <label for="temperaturaHasta">A:</label>
+      <select id="temperaturaHasta"></select>
+    </div>
+
+    <button id="btnConvertirTemperatura">Convertir Temperatura</button>
+    <h3>Resultado: <span id="resultadoTemperatura"></span></h3>
+  </div>
+
+  
+  <div id="moneda" class="conversion-section">
+    <h2>Conversión de Moneda</h2>
+    <div class="form-group">
+      <label for="monedaValor">Valor de entrada:</label>
+      <input type="number" id="monedaValor">
+    </div>
+
+    <div class="form-group">
+      <label for="monedaDesde">De:</label>
+      <select id="monedaDesde"></select>
+    </div>
+
+    <div class="form-group">
+      <label for="monedaHasta">A:</label>
+      <select id="monedaHasta"></select>
+    </div>
+
+    <button id="btnConvertirMoneda">Convertir Moneda</button>
+    <h3>Resultado: <span id="resultadoMoneda"></span></h3>
+  </div>
+
+  
+  <div class="category">
+    <h3>Agregar nueva conversión:</h3>
+    <div class="form-group">
+      <label for="nuevaUnidadNombre">Nombre de la unidad:</label>
+      <input type="text" id="nuevaUnidadNombre">
+    </div>
+
+    <div class="form-group">
+      <label for="nuevaUnidadCategoria">Categoría:</label>
+      <select id="nuevaUnidadCategoria">
+        <option value="longitud">Longitud</option>
+        <option value="peso">Peso</option>
+        <option value="temperatura">Temperatura</option>
+        <option value="moneda">Moneda</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="nuevaUnidadFactor">Factor de conversión:</label>
+      <input type="number" id="nuevaUnidadFactor" step="any">
+    </div>
+
+    <button id="btnAgregarUnidad">Agregar nueva conversión</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
